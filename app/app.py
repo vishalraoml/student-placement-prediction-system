@@ -10,9 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# -----------------------------
 # Custom Styling
-# -----------------------------
 st.markdown(
     """
     <style>
@@ -63,9 +61,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# -----------------------------
 # Load data and artifacts
-# -----------------------------
 DATA_PATH = "dataset/student_placement_dataset.csv"
 MODEL_PATH = "models/salary_model.pkl"
 FEATURES_PATH = "models/model_features.pkl"
@@ -79,9 +75,8 @@ def load_artifacts():
 
 model, model_features, raw_df = load_artifacts()
 
-# -----------------------------
+
 # Page Header
-# -----------------------------
 st.markdown(
     """
     <div class="title-box">
@@ -92,9 +87,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# -----------------------------
 # Sidebar Inputs
-# -----------------------------
 st.sidebar.title("Student Input Panel")
 st.sidebar.caption("Enter student details for prediction")
 
@@ -138,9 +131,8 @@ with st.sidebar.form("prediction_form"):
 
     submitted = st.form_submit_button("Predict Salary")
 
-# -----------------------------
+
 # Main Layout
-# -----------------------------
 col1, col2 = st.columns([1.2, 1])
 
 with col1:
@@ -186,9 +178,8 @@ with col2:
     ax3.set_title("Numeric Feature Correlation")
     st.pyplot(fig3, use_container_width=True)
 
-# -----------------------------
+
 # Prediction Section
-# -----------------------------
 if submitted:
     input_df = pd.DataFrame([input_values])
 
